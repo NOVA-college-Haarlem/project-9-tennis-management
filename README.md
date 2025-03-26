@@ -284,11 +284,6 @@ Dit Laravel-project biedt een Tennis/Padel Club Managementsysteem met vier besta
 - Ik kan gasten kennis laten maken met clubfaciliteiten
 - Ik kan dezelfde gast een beperkt aantal keren uitnodigen
 
-
-## eerdere
-
-```mermaid
-
 ## ERD
 
 ```mermaid
