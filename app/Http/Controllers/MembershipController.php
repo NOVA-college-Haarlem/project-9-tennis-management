@@ -51,7 +51,8 @@ class MembershipController extends Controller
      */
     public function show(string $id)
     {
-        
+        $membership = Membership::with('user', 'membershipLevel')->findOrFail($id);
+        return view('memberships.show', compact('membership'));
     }
 
     /**
@@ -59,7 +60,10 @@ class MembershipController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $membership = Membership::findOrFail($id);
+        $users = User::all();
+        $membershipLevels = MembershipLevel::all();
+        return view('memberships.edit', compact('membership', 'users', 'membershipLevels'));
     }
 
     /**
@@ -67,7 +71,18 @@ class MembershipController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'membership_level_id' => 'required|exists:membership_levels,id',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'active' => 'required|boolean',
+            'balance' => 'required|numeric',
+        ]);
+
+        $membership = Membership::findOrFail($id);
+        $membership->update($request->all());
+        return redirect()->route('memberships.index');
     }
 
     /**
@@ -75,6 +90,8 @@ class MembershipController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $membership = Membership::findOrFail($id);
+        $membership->delete();
+        return redirect()->route('memberships.index');
     }
 }
