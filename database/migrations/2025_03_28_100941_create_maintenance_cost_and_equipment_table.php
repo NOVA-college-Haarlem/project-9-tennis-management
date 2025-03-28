@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('match_invitation', function (Blueprint $table) {
+        Schema::create('maintenance_cost_and_equipment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sender_user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('receiver_user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
+            $table->foreignId('maintenance_activity_idz')->constrained('maintenance_activities')->onDelete('cascade');
+            $table->string('used_equipment');
+            $table->decimal('cost', 10, 2);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('match_invitation');
+        Schema::dropIfExists('maintenance_cost_and_equipment');
     }
 };
