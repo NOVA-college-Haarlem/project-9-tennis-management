@@ -26,6 +26,8 @@ class BookingRequest extends FormRequest
             'end_time' => ['required', 'date'],
             'status' => ['required', 'string'],
             'booking_type' => ['required', 'string'],
+            'court_id' => ['required'],
+            'user_id' => ['required'],
         ];
     }
 }

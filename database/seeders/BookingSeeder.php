@@ -13,34 +13,23 @@ class BookingSeeder extends Seeder
      */
     public function run(): void
     {
-        $bookings = [
+        Booking::insert([
             [
-                // 'user_id' => $user->id,
-                // 'court_id' => $court->id,
+                'user_id' => 1,
+                'court_id' => 1,
                 'start_time' => '2025-03-26 08:00:00',
                 'end_time' => '2025-03-26 09:00:00',
                 'status' => 'approved',
                 'booking_type' => 'Regular',
             ],
             [
-                // 'user_id' => $user->id,
-                // 'court_id' => $court->id,
+                'user_id' => 2,
+                'court_id' => 2,
                 'start_time' => '2025-03-26 09:00:00',
                 'end_time' => '2025-03-26 10:00:00',
                 'status' => 'pending',
                 'booking_type' => 'Tournament',
             ],
-            [
-                // 'user_id' => $user->id,
-                // 'court_id' => $court->id,
-                'start_time' => '2025-03-26 10:00:00',
-                'end_time' => '2025-03-26 11:00:00',
-                'status' => 'approved',
-                'booking_type' => 'Training',
-            ],
-        ];
-
-        Booking::insert($bookings);
-
+        ]);
     }
 }

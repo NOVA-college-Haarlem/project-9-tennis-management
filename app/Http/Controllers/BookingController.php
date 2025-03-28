@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookingRequest;
 use App\Models\Booking;
+use App\Models\Court;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -18,7 +20,9 @@ class BookingController extends Controller
 
     public function create()
     {
-        return view('bookings.create');
+        $courts = Court::all();
+        $users = User::all();
+        return view('bookings.create', compact('courts', 'users'));
     }
 
     public function store(BookingRequest $request)
@@ -36,7 +40,9 @@ class BookingController extends Controller
 
     public function edit(Booking $booking)
     {
-        return view('bookings.edit', compact('booking'));
+        $courts = Court::all();
+        $users = User::all();
+        return view('bookings.edit', compact('booking', 'courts', 'users'));
     }
 
 

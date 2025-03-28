@@ -6,8 +6,8 @@
         <thead>
             <tr>
                 <th>ID</th>
-                {{-- <th>User</th>
-                <th>Court</th> --}}
+                <th>User</th>
+                <th>Court</th> 
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Status</th>
@@ -19,8 +19,8 @@
             @foreach($bookings as $booking)
                 <tr>
                     <td>{{ $booking->id }}</td>
-                    {{-- <td>{{ $booking->user->name }}</td>
-                    <td>{{ $booking->court->name }}</td> --}}
+                    <td>{{ $booking->user->firstname }}</td>
+                    <td>{{ $booking->court->name }}</td> 
                     <td>{{ $booking->start_time }}</td>
                     <td>{{ $booking->end_time }}</td>
                     <td>{{ $booking->status }}</td>
