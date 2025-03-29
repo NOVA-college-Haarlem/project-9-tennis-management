@@ -9,7 +9,7 @@ class TournamentRegistration extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'tournament_id', 'registration_date', 'status', ' court_id'];
+    protected $fillable = ['user_id', 'tournament_id', 'registration_date', 'status'];
 
     public function tournament()
     {
