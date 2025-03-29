@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('tournament_registrations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('tournament_id')->constrained()->onDelete('cascade');
-            $table->foreignId('court_id')->nullable()->constrained()->onDelete('set null');
-            $table->dateTime('scheduled_time');
-            $table->foreignId('player1_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('player2_id')->constrained('users')->onDelete('cascade');
-            $table->string('score')->nullable(); // e.g., "6-3, 4-6, 7-5"
-            $table->string('status')->default('scheduled');
+            $table->string('status')->default('registered'); // registered, confirmed, cancelled
+            $table->date('registration_date');
             $table->timestamps();
         });
     }
