@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,14 @@ require __DIR__ . '/auth.php';
 
 
 //hier komen de routes
+
+//memberships
+Route::middleware('auth')->group(function () {
+    Route::get('/memberships', [MembershipController::class, 'index'])->name('memberships.index');
+    Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create');
+    Route::post('/memberships', [MembershipController::class, 'store'])->name('memberships.store');
+    Route::get('/memberships/{membership}', [MembershipController::class, 'show'])->name('memberships.show');
+    Route::get('/memberships/{membership}/edit', [MembershipController::class, 'edit'])->name('memberships.edit');
+    Route::patch('/memberships/{membership}', [MembershipController::class, 'update'])->name('memberships.update');
+    Route::delete('/memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy');
+});
