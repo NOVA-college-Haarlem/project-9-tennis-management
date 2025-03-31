@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('tournament', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->date('start_date');
             $table->date('end_date');
+            $table->integer('min_skill_level');
+            $table->integer('max_skill_level');
+            $table->string('format');
+            $table->float('entry_fee');
+            $table->string('status');
             $table->timestamps();
         });
     }
