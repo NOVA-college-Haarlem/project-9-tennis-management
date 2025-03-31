@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\MembershipLevelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/memberships/{membership}/edit', [MembershipController::class, 'edit'])->name('memberships.edit');
     Route::patch('/memberships/{membership}', [MembershipController::class, 'update'])->name('memberships.update');
     Route::delete('/memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy');
+});
+
+// Membership Levels
+Route::middleware('auth')->group(function () {
+    Route::get('/membership-levels', [MembershipLevelController::class, 'index'])->name('membership-levels.index');
+    Route::get('/membership-levels/create', [MembershipLevelController::class, 'create'])->name('membership-levels.create');
+    Route::post('/membership-levels', [MembershipLevelController::class, 'store'])->name('membership-levels.store');
+    Route::get('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'show'])->name('membership-levels.show');
+    Route::get('/membership-levels/{membershipLevel}/edit', [MembershipLevelController::class, 'edit'])->name('membership-levels.edit');
+    Route::patch('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'update'])->name('membership-levels.update');
+    Route::delete('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'destroy'])->name('membership-levels.destroy');
 });
