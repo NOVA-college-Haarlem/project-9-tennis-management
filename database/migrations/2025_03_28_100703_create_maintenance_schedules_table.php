@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('maintenance_schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('court_id')->constrained('courts')->onDelete('cascade');
-            $table->dateTime('scheduled_for');
-            $table->enum('status', ['completed', 'scheduled'])->default('scheduled');
+            $table->date('start_time');
+            $table->date('end_time');
+            $table->enum('status', ['completed', 'cancelled', 'scheduled'])->default('scheduled');
             $table->timestamps();
         });
     }
