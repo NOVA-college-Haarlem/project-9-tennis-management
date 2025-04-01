@@ -1,5 +1,5 @@
 <h1>Membership Details</h1>
-<p>User: {{ $membership->user->name }}</p>
+<p>User: {{ $membership->user->firstname }} {{ $user->lastname }}</p>
 <p>Membership Level: {{ $membership->membershipLevel->name }}</p>
 <p>Start Date: {{ $membership->start_date }}</p>
 <p>End Date: {{ $membership->end_date }}</p>
