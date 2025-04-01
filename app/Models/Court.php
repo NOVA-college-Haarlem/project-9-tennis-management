@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
 use Illuminate\Database\Eloquent\Model;
 
 class Court extends Model
 {
+
     use HasFactory;
 
     protected $fillable = [
@@ -26,4 +30,7 @@ class Court extends Model
     {
         return $this->hasMany(MaintenanceSchedule::class, 'maintenance_schedule_id');
     }
+
+  
+
 }

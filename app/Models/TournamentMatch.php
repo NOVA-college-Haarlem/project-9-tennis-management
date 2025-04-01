@@ -3,18 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 
 class TournamentMatch extends Model
 {
+
     use HasFactory;
 
     protected $fillable = ['tournament_id', 'court_id', 'scheduled_time', 'player1_id', 'player2_id', 'score', 'status'];
+
 
     public function tournament()
     {
         return $this->belongsTo(Tournament::class);
     }
+
 
     public function court()
     {
@@ -30,4 +34,5 @@ class TournamentMatch extends Model
     {
         return $this->belongsTo(User::class, 'player2_id');
     }
+
 }

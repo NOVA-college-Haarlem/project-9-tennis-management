@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
 use Illuminate\Database\Eloquent\Model;
 
-class TournamentRegistration extends Model
+class MaintenanceRequest extends Model
 {
+
     use HasFactory;
 
     protected $fillable = ['user_id', 'tournament_id', 'registration_date', 'status'];
@@ -19,5 +23,10 @@ class TournamentRegistration extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function maintenanceActivities()
+    {
+        return $this->hasMany(MaintenanceActivity::class);
     }
 }
