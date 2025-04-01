@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('tournament_matches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('player1_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('player2_id')->constrained('users')->onDelete('cascade');            
             $table->foreignId('tournament_id')->constrained()->onDelete('cascade');
-            $table->date('registration_date');
+            $table->dateTime('scheduled_time');
+            $table->integer('player1_score')->nullable();
+            $table->integer('player2_score')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
         });
