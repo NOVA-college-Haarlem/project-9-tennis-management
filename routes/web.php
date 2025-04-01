@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\CourtController;
 use App\Http\Controllers\MaintenanceScheduleController;
 use App\Http\Controllers\ProfileController;
@@ -60,6 +61,7 @@ Route::name("maintenanceschedules.")->group(function () {
     });
 });
 
+// Tournament Routes
 Route::name("tournaments.")->group(function () {
     Route::prefix("tournaments")->group(function () {
         Route::get('/', [TournamentController::class, 'index'])->name('index');
@@ -89,10 +91,24 @@ Route::name("tournament_registrations.")->group(function () {
         Route::get('/', [TournamentRegistrationController::class, 'index'])->name('index');
         Route::get('/create', [TournamentRegistrationController::class, 'create'])->name('create');
         Route::post('/', [TournamentRegistrationController::class, 'store'])->name('store');
-        Route::get('/{tournament_registration}', [TournamentRegistrationController::class, 'show'])->name('show');
-        Route::get('/{tournament_registration}/edit', [TournamentRegistrationController::class, 'edit'])->name('edit');
-        Route::put('/{tournament_registration}', [TournamentRegistrationController::class, 'update'])->name('update');
-        Route::delete('/{tournament_registration}', [TournamentRegistrationController::class, 'destroy'])->name('destroy');
+        Route::get('/{registration}', [TournamentRegistrationController::class, 'show'])->name('show');
+        Route::get('/{registration}/edit', [TournamentRegistrationController::class, 'edit'])->name('edit');
+        Route::put('/{registration}', [TournamentRegistrationController::class, 'update'])->name('update');
+        Route::delete('/{registration}', [TournamentRegistrationController::class, 'destroy'])->name('destroy');
+    });
+});
+
+
+//Competition Routes
+Route::name("competitions.")->group(function () {
+    Route::prefix("competitions")->group(function () {
+        Route::get('/', [CompetitionController::class, 'index'])->name('index');
+        Route::get('/create', [CompetitionController::class, 'create'])->name('create');
+        Route::post('/', [CompetitionController::class, 'store'])->name('store');
+        Route::get('/{competition}', [CompetitionController::class, 'show'])->name('show');
+        Route::get('/{competition}/edit', [CompetitionController::class, 'edit'])->name('edit');
+        Route::put('/{competition}', [CompetitionController::class, 'update'])->name('update');
+        Route::delete('/{competition}', [CompetitionController::class, 'destroy'])->name('destroy');
     });
 });
 
