@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'update'])->name('membership-levels.update');
     Route::delete('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'destroy'])->name('membership-levels.destroy');
 });
+
+// Bookings
 Route::name("bookings.")->group(function () {
     Route::prefix("bookings")->group(function () {
         Route::get('/', [BookingController::class, 'index'])->name('index');
@@ -62,6 +64,7 @@ Route::name("bookings.")->group(function () {
     });
 });
 
+// Courts
 Route::name("courts.")->group(function () {
     Route::prefix("courts")->group(function () {
         Route::get('/', [CourtController::class, 'index'])->name('index');
@@ -74,7 +77,7 @@ Route::name("courts.")->group(function () {
     });
 });
 
-
+// Maintenance Schedules
 Route::name("maintenanceschedules.")->group(function () {
     Route::prefix("maintenanceschedules")->group(function () {
         Route::get('/', [MaintenancescheduleController::class, 'index'])->name('index');
@@ -87,6 +90,7 @@ Route::name("maintenanceschedules.")->group(function () {
     });
 });
 
+// Tournament routes
 Route::name("tournaments.")->group(function () {
     Route::prefix("tournaments")->group(function () {
         Route::get('/', [TournamentController::class, 'index'])->name('index');
@@ -99,6 +103,7 @@ Route::name("tournaments.")->group(function () {
     });
 });
 
+// Tournament Matches
 Route::name("tournament_matches.")->group(function () {
     Route::prefix("tournament_matches")->group(function () {
         Route::get('/', [TournamentMatchController::class, 'index'])->name('index');
@@ -111,6 +116,7 @@ Route::name("tournament_matches.")->group(function () {
     });
 });
 
+// Tournament Registrations
 Route::name("tournament_registrations.")->group(function () {
     Route::prefix("tournament_registrations")->group(function () {
         Route::get('/', [TournamentRegistrationController::class, 'index'])->name('index');
