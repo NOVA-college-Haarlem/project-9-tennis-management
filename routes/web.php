@@ -3,12 +3,17 @@
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\MembershipLevelController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\CompetitionMatchController;
+use App\Http\Controllers\CompetitionTeamController;
 use App\Http\Controllers\CourtController;
 use App\Http\Controllers\MaintenanceScheduleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentMatchController;
 use App\Http\Controllers\TournamentRegistrationController;
+use App\Http\Requests\CompetitionTeamRequest;
+use Database\Seeders\CompetitionMatchSeeder;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -90,7 +95,7 @@ Route::name("maintenanceschedules.")->group(function () {
     });
 });
 
-// Tournament routes
+// Tournament Routes
 Route::name("tournaments.")->group(function () {
     Route::prefix("tournaments")->group(function () {
         Route::get('/', [TournamentController::class, 'index'])->name('index');
@@ -122,12 +127,52 @@ Route::name("tournament_registrations.")->group(function () {
         Route::get('/', [TournamentRegistrationController::class, 'index'])->name('index');
         Route::get('/create', [TournamentRegistrationController::class, 'create'])->name('create');
         Route::post('/', [TournamentRegistrationController::class, 'store'])->name('store');
-        Route::get('/{tournament_registration}', [TournamentRegistrationController::class, 'show'])->name('show');
-        Route::get('/{tournament_registration}/edit', [TournamentRegistrationController::class, 'edit'])->name('edit');
-        Route::put('/{tournament_registration}', [TournamentRegistrationController::class, 'update'])->name('update');
-        Route::delete('/{tournament_registration}', [TournamentRegistrationController::class, 'destroy'])->name('destroy');
+        Route::get('/{registration}', [TournamentRegistrationController::class, 'show'])->name('show');
+        Route::get('/{registration}/edit', [TournamentRegistrationController::class, 'edit'])->name('edit');
+        Route::put('/{registration}', [TournamentRegistrationController::class, 'update'])->name('update');
+        Route::delete('/{registration}', [TournamentRegistrationController::class, 'destroy'])->name('destroy');
     });
 });
+
+
+//Competition Routes
+Route::name("competitions.")->group(function () {
+    Route::prefix("competitions")->group(function () {
+        Route::get('/', [CompetitionController::class, 'index'])->name('index');
+        Route::get('/create', [CompetitionController::class, 'create'])->name('create');
+        Route::post('/', [CompetitionController::class, 'store'])->name('store');
+        Route::get('/{competition}', [CompetitionController::class, 'show'])->name('show');
+        Route::get('/{competition}/edit', [CompetitionController::class, 'edit'])->name('edit');
+        Route::put('/{competition}', [CompetitionController::class, 'update'])->name('update');
+        Route::delete('/{competition}', [CompetitionController::class, 'destroy'])->name('destroy');
+    });
+});
+
+Route::name("competition_matches.")->group(function () {
+    Route::prefix("competition_matches")->group(function () {
+        Route::get('/', [CompetitionMatchController::class, 'index'])->name('index');
+        Route::get('/create', [CompetitionMatchController::class, 'create'])->name('create');
+        Route::post('/', [CompetitionMatchController::class, 'store'])->name('store');
+        Route::get('/{competition_match}', [CompetitionMatchController::class, 'show'])->name('show');
+        Route::get('/{competition_match}/edit', [CompetitionMatchController::class, 'edit'])->name('edit');
+        Route::put('/{competition_match}', [CompetitionMatchController::class, 'update'])->name('update');
+        Route::delete('/{competition_match}', [CompetitionMatchController::class, 'destroy'])->name('destroy');
+    });
+});
+
+
+Route::name("competition_teams.")->group(function () {
+    Route::prefix("competition_teams")->group(function () {
+        Route::get('/', [CompetitionTeamController::class, 'index'])->name('index');
+        Route::get('/create', [CompetitionTeamController::class, 'create'])->name('create');
+        Route::post('/', [CompetitionTeamController::class, 'store'])->name('store');
+        Route::get('/{competition_team}', [CompetitionTeamController::class, 'show'])->name('show');
+        Route::get('/{competition_team}/edit', [CompetitionTeamController::class, 'edit'])->name('edit');
+        Route::put('/{competition_team}', [CompetitionTeamController::class, 'update'])->name('update');
+        Route::delete('/{competition_team}', [CompetitionTeamController::class, 'destroy'])->name('destroy');
+    });
+});
+
 
 
 require __DIR__.'/auth.php';

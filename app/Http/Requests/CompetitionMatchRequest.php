@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TournamentRegistrationRequest extends FormRequest
+class CompetitionMatchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,9 @@ class TournamentRegistrationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tournament_id' => 'required|exists:tournaments,id',
-            'user_id' => 'required|exists:users,id',
-            'registration_date' => 'required|date',
-            'status' => 'required|string|in:registered,confirmed,canceled',
+            'competition_id' => 'required|exists:competitions,id',
+            'name' => 'required|string|max:255',
+            'captain_id' => 'required|exists:users,id',
         ];
     }
 }

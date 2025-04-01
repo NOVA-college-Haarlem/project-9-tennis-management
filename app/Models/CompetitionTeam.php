@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CompetitionTeam extends Model
 {
-    public function competition()
-    {
+    use HasFactory;
+
+    protected $fillable = ['competition_id', 'name', 'captain_id'];
+
+    public function competition() {
         return $this->belongsTo(Competition::class);
     }
 
-    // A CompetitionTeam has many Users
-    public function users()
-    {
-        return $this->hasMany(User::class);
+    public function members() {
+        return $this->belongsToMany(User::class, 'competition_team_user', 'team_id', 'user_id');
     }
 }
