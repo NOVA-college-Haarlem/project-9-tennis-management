@@ -3,7 +3,9 @@
 <p>Description: {{ $membershipLevel->description }}</p>
 <p>Price: ${{ $membershipLevel->price }}</p>
 <p>Max Booking Days Ahead: {{ $membershipLevel->max_booking_days_ahead }}</p>
+<p>Max Booking Hours: {{ $membershipLevel->max_booking_hours }}</p>
 <p>Allow Guests: {{ $membershipLevel->allow_guests ? 'Yes' : 'No' }}</p>
+<p>Access Competitions: {{ $membershipLevel->access_competitions ? 'Yes' : 'No' }}</p>
 <a href="{{ route('membership-levels.edit', $membershipLevel->id) }}">Edit</a>
 <form action="{{ route('membership-levels.destroy', $membershipLevel->id) }}" method="POST">
     @csrf

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->integer('max_booking_days_ahead');
+            $table->integer('max_booking_hours');
             $table->boolean('allow_guests')->default(false);
+            $table->boolean('access_competitions')->default(false);
             $table->timestamps();
         });
     }
