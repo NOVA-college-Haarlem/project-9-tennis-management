@@ -7,6 +7,8 @@ use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\CompetitionMatchController;
 use App\Http\Controllers\CompetitionTeamController;
 use App\Http\Controllers\CourtController;
+use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\EquipmentRentalController;
 use App\Http\Controllers\MaintenanceScheduleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
@@ -173,6 +175,31 @@ Route::name("competition_teams.")->group(function () {
     });
 });
 
+//Equipment Routes
+Route::name("equipments.")->group(function () {
+    Route::prefix("equipments")->group(function () {
+        Route::get('/', [EquipmentController::class, 'index'])->name('index');
+        Route::get('/create', [EquipmentController::class, 'create'])->name('create');
+        Route::post('/', [EquipmentController::class, 'store'])->name('store');
+        Route::get('/{equipment}', [EquipmentController::class, 'show'])->name('show');
+        Route::get('/{equipment}/edit', [EquipmentController::class, 'edit'])->name('edit');
+        Route::put('/{equipment}', [EquipmentController::class, 'update'])->name('update');
+        Route::delete('/{equipment}', [EquipmentController::class, 'destroy'])->name('destroy');
+    });
+});
+
+//Equipment Rental Routes
+Route::name("equipment_rentals.")->group(function () {
+    Route::prefix("equipment_rentals")->group(function () {
+        Route::get('/', [EquipmentRentalController::class, 'index'])->name('index');
+        Route::get('/create', [EquipmentRentalController::class, 'create'])->name('create');
+        Route::post('/', [EquipmentRentalController::class, 'store'])->name('store');
+        Route::get('/{equipment_rental}', [EquipmentRentalController::class, 'show'])->name('show');
+        Route::get('/{equipment_rental}/edit', [EquipmentRentalController::class, 'edit'])->name('edit');
+        Route::put('/{equipment_rental}', [EquipmentRentalController::class, 'update'])->name('update');
+        Route::delete('/{equipment_rental}', [EquipmentRentalController::class, 'destroy'])->name('destroy');
+    });
+});
 
 
 require __DIR__.'/auth.php';
