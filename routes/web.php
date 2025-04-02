@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\MembershipLevelController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourtController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaintenanceScheduleController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentMatchController;
 use App\Http\Controllers\TournamentRegistrationController;
@@ -28,6 +33,13 @@ Route::middleware('auth')->group(function () {
 
 
 //hier komen de routes
+
+//statische pagina's
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/privacy', [PrivacyController::class, 'index'])->name('privacy');
+Route::get('/terms', [TermsOfServiceController::class, 'index'])->name('terms');
+Route::get('/about', [AboutUsController::class, 'index'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 //memberships
 Route::middleware('auth')->group(function () {
