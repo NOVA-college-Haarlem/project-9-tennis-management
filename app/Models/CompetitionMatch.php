@@ -9,7 +9,7 @@ class CompetitionMatch extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['competition_id', 'court_id', 'team1_id', 'team2_id', 'scheduled_time', 'score', 'status'];
+    protected $fillable = ['competition_id', 'court_id', 'team1_id', 'team2_id', 'scheduled_time', 'status'];
 
     public function competition() {
         return $this->belongsTo(Competition::class);
@@ -21,5 +21,8 @@ class CompetitionMatch extends Model
 
     public function team2() {
         return $this->belongsTo(CompetitionTeam::class, 'team2_id');
+    }
+    public function court() {
+        return $this->belongsTo(Court::class, 'court_id');
     }
 }

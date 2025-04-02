@@ -18,4 +18,7 @@ class CompetitionTeam extends Model
     public function members() {
         return $this->belongsToMany(User::class, 'competition_team_user', 'team_id', 'user_id');
     }
+    public function captain() {
+        return $this->belongsTo(User::class, 'captain_id');
+    }
 }

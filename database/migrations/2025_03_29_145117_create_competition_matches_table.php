@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('competition_matches', function (Blueprint $table) {
             $table->id();
             $table->foreignId('competition_id')->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->foreignId('captain_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('court_id')->constrained()->onDelete('cascade');
+            $table->foreignId('team1_id')->constrained('competition_teams')->onDelete('cascade');
+            $table->foreignId('team2_id')->constrained('competition_teams')->onDelete('cascade');
+            $table->dateTime('scheduled_time');
+            // $table->string('score')->nullable();
+            $table->enum('status', ['scheduled', 'ongoing', 'completed'])->default('scheduled'); // scheduled, ongoing, completed
             $table->timestamps();
         });
     }

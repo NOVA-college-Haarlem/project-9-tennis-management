@@ -23,12 +23,8 @@ class CompetitionTeamRequest extends FormRequest
     {
         return [
             'competition_id' => 'required|exists:competitions,id',
-            'court_id' => 'required|exists:courts,id',
-            'team1_id' => 'required|exists:competition_teams,id|different:team2_id',
-            'team2_id' => 'required|exists:competition_teams,id',
-            'scheduled_time' => 'required|date|after:today',
-            'score' => 'nullable|string|max:255',
-            'status' => 'nullable|string|in:scheduled,ongoing,completed',
+            'name' => 'required|string|max:255',
+            'captain_id' => 'required|exists:users,id',
         ];
     }
 }

@@ -1,11 +1,8 @@
-<h1>Competition Match Details</h1>
-<p><strong>Competition:</strong> {{ $competitionMatch->competition->name }}</p>
-<p><strong>Team 1:</strong> {{ $competitionMatch->team1->name }}</p>
-<p><strong>Team 2:</strong> {{ $competitionMatch->team2->name }}</p>
-<p><strong>Scheduled Time:</strong> {{ $competitionMatch->scheduled_time }}</p>
-<a href="{{ route('competition_matches.edit', $competitionMatch) }}" class="btn btn-warning">Edit</a>
-<form action="{{ route('competition_matches.destroy', $competitionMatch) }}" method="POST" style="display:inline;">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+<h1>Match Details</h1>
+<p>Competition: {{ $competitionMatch->competition->name }}</p>
+<p>Team 1: {{ $competitionMatch->team1->name }}</p>
+<p>Team 2: {{ $competitionMatch->team2->name }}</p>
+<p>Scheduled Time: {{ $competitionMatch->scheduled_time }}</p>
+<p>Court: {{ $competitionMatch->court->name }}</p>
+<p>Status: {{ $competitionMatch->status }}</p>
+<a href="{{ route('competition_matches.index') }}">Back</a>
