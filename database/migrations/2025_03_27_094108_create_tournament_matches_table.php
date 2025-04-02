@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('player2_id')->constrained('users')->onDelete('cascade');            
             $table->foreignId('tournament_id')->constrained()->onDelete('cascade');
             $table->dateTime('scheduled_time');
-            $table->integer('player1_score')->nullable();
+            $table->integer('player1_score' )->nullable();
             $table->integer('player2_score')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();

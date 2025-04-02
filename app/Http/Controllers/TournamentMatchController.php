@@ -43,23 +43,27 @@ class TournamentMatchController extends Controller
     }
 
     public function update(TournamentMatchRequest $request, TournamentMatch $tournament_match)
-    {
-        if ($request->status == 'completed' && (!$request->player1_score || !$request->player2_score)) {
-            return redirect()->back()->withErrors([
-                'score' => 'Both Player 1 and Player 2 scores are required when the status is completed.'
-            ])->withInput();
-        }
-    
-        $tournament_match->update([
-            'status' => $request->status,
-            'player1_score' => $request->player1_score,
-            'player2_score' => $request->player2_score,
-            'scheduled_time' => $request->scheduled_time,
-            'tournament_id' => $request->tournament_id, 
-        ]);
-    
-        return redirect()->route('tournament_matches.index');
+{
+    // Validate that scores are provided when the status is 'completed'
+    if ($request->status == 'completed' && ($request->player1_score === null || $request->player2_score === null)) {
+        return redirect()->back()->withErrors([
+            'score' => 'Both Player 1 and Player 2 scores are required when the status is completed.'
+        ])->withInput();
     }
+
+    // Update the tournament match
+    $tournament_match->update([
+        'player1_id' => $request->player1_id,
+        'player2_id' => $request->player2_id,
+        'status' => $request->status,
+        'player1_score' => $request->player1_score,
+        'player2_score' => $request->player2_score,
+        'scheduled_time' => $request->scheduled_time,
+        'tournament_id' => $request->tournament_id,
+    ]);
+
+    return redirect()->route('tournament_matches.index')->with('success', 'Tournament match updated successfully.');
+}
     
     
 
