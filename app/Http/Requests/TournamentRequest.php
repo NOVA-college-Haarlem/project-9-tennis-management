@@ -25,7 +25,7 @@ class TournamentRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'end_date' => 'required|date',
             'min_skill_level' => 'required|integer|min:1',
             'max_skill_level' => 'required|integer|gte:min_skill_level',
             'format' => 'required|string',
