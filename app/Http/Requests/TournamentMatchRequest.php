@@ -21,12 +21,30 @@ class TournamentMatchRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'scheduled_time' => 'required|date',
             'player1_id' => 'required|exists:users,id',
             'player2_id' => 'required|exists:users,id|different:player1_id',
             'court_id' => 'nullable|exists:courts,id',
-            'status' => 'required|string|in:scheduled,in-progress,completed,canceled',
+            'status' => 'required|string|in:pending,upcoming,completed,canceled',
+            'player1_score' => 'nullable|integer|min:0',
+            'player2_score' => 'nullable|integer|min:0',
+        ];
+    
+        if (in_array($this->status, ['completed'])) {
+            $rules['player1_score'] = 'required|integer|min:0';
+            $rules['player2_score'] = 'required|integer|min:0';
+        }
+    
+        return $rules;
+    }
+    
+    
+    public function messages()
+    {
+        return [
+            'player1_score.required' => 'Player 1 score is required when the status is ongoing or completed.',
+            'player2_score.required' => 'Player 2 score is required when the status is ongoing or completed.',
         ];
     }
 }

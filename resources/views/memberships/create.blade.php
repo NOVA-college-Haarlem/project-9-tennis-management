@@ -4,7 +4,7 @@
     <label for="user_id">User:</label>
     <select name="user_id" id="user_id">
         @foreach ($users as $user)
-            <option value="{{ $user->id }}">{{ $user->name }}</option>
+            <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
         @endforeach
     </select>
     <label for="membership_level_id">Membership Level:</label>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Competition;
 use App\Models\Tournament;
 use App\Models\TournamentMatch;
 use App\Models\User;
@@ -23,6 +24,9 @@ class DatabaseSeeder extends Seeder
             TournamentSeeder::class,
             TournamentRegistrationSeeder::class,
             TournamentMatchSeeder::class,
+            CompetitionSeeder::class,
+            CompetitionTeamSeeder::class,
+            CompetitionMatchSeeder::class,
         ]);
     }
 }

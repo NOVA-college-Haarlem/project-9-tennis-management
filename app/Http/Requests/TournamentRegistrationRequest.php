@@ -23,6 +23,9 @@ class TournamentRegistrationRequest extends FormRequest
     {
         return [
             'tournament_id' => 'required|exists:tournaments,id',
+            'user_id' => 'required|exists:users,id',
+            'registration_date' => 'required|date',
+            'status' => 'required|string|in:registered,confirmed,canceled',
         ];
     }
 }
