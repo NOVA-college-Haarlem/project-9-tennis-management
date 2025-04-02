@@ -9,7 +9,11 @@
     <input type="number" name="price" id="price" step="0.01">
     <label for="max_booking_days_ahead">Max Booking Days Ahead:</label>
     <input type="number" name="max_booking_days_ahead" id="max_booking_days_ahead">
+    <label for="max_booking_hours">Max Booking Hours:</label>
+    <input type="number" name="max_booking_hours" id="max_booking_hours">
     <label for="allow_guests">Allow Guests:</label>
     <input type="checkbox" name="allow_guests" id="allow_guests" value="1">
+    <label for="access_competitions">Access Competitions:</label>
+    <input type="checkbox" name="access_competitions" id="access_competitions" value="1">
     <button type="submit">Create</button>
 </form>
