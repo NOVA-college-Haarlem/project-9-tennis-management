@@ -30,11 +30,25 @@
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
         </div>
 
+        <div>
+            <label for="max_booking_hours" class="block text-sm font-medium text-gray-700">Max Booking Hours</label>
+            <input type="number" name="max_booking_hours" id="max_booking_hours"
+                value="{{ $membershipLevel->max_booking_hours }}"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        </div>
+
         <div class="flex items-center">
             <input type="checkbox" name="allow_guests" id="allow_guests" value="1"
                 {{ $membershipLevel->allow_guests ? 'checked' : '' }}
                 class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
             <label for="allow_guests" class="ml-2 block text-sm text-gray-700">Allow Guests</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox" name="access_competitions" id="access_competitions" value="1"
+                {{ $membershipLevel->access_competitions ? 'checked' : '' }}
+                class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+            <label for="access_competitions" class="ml-2 block text-sm text-gray-700">Access Competitions</label>
         </div>
 
         <div>
