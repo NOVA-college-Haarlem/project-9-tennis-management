@@ -11,6 +11,8 @@ class MembershipLevel extends Model
         'description',
         'price',
         'max_booking_days_ahead',
+        'max_booking_hours',
         'allow_guests',
+        'access_competitions',
     ];
 }

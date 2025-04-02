@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MembershipLevelRequest;
 use App\Models\MembershipLevel;
 use Illuminate\Http\Request;
 
@@ -18,17 +19,10 @@ class MembershipLevelController extends Controller
         return view('membership-levels.create');
     }
 
-    public function store(Request $request)
+    public function store(MembershipLevelRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'max_booking_days_ahead' => 'required|integer',
-            'allow_guests' => 'required|boolean',
-        ]);
-
-        MembershipLevel::create($request->all());
+        $membershipLevel = new MembershipLevel();
+        $this->save($membershipLevel, $request);
         return redirect()->route('membership-levels.index');
     }
 
@@ -42,17 +36,10 @@ class MembershipLevelController extends Controller
         return view('membership-levels.edit', compact('membershipLevel'));
     }
 
-    public function update(Request $request, MembershipLevel $membershipLevel)
+    public function update(MembershipLevelRequest $request, MembershipLevel $membershipLevel)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'max_booking_days_ahead' => 'required|integer',
-            'allow_guests' => 'required|boolean',
-        ]);
-
         $membershipLevel->update($request->all());
+        $this->save($membershipLevel, $request);
         return redirect()->route('membership-levels.index');
     }
 
@@ -61,4 +48,17 @@ class MembershipLevelController extends Controller
         $membershipLevel->delete();
         return redirect()->route('membership-levels.index');
     }
+
+    public function save(MembershipLevel $membershipLevel, MembershipLevelRequest $request)
+    {
+        $membershipLevel->name = $request->input('name');
+        $membershipLevel->description = $request->input('description');
+        $membershipLevel->price = $request->input('price');
+        $membershipLevel->max_booking_days_ahead = $request->input('max_booking_days_ahead');
+        $membershipLevel->max_booking_hours = $request->input('max_booking_hours');
+        $membershipLevel->allow_guests = $request->input('allow_guests');
+        $membershipLevel->access_competitions = $request->input('access_competitions');
+        $membershipLevel->save();
+    }
+    
 }
