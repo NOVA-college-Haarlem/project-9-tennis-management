@@ -62,7 +62,7 @@ class MembershipController extends Controller
      */
     public function update(MembershipRequest $request, Membership $membership)
     {
-        $this->save($membership, $request);
+        $membership->update($request->all());
         return redirect()->route('memberships.index');
     }
 
