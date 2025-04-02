@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MembershipRequest;
 use App\Models\Membership;
 use App\Models\MembershipLevel;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class MembershipController extends Controller
 {
@@ -31,18 +31,10 @@ class MembershipController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MembershipRequest $request)
     {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'membership_level_id' => 'required|exists:membership_levels,id',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
-            'active' => 'required|boolean',
-            'balance' => 'required|numeric',
-        ]);
-
-        Membership::create($request->all());
+        $membership = new Membership();
+        $this->save($membership, $request);
         return redirect()->route('memberships.index');
     }
 
@@ -58,9 +50,8 @@ class MembershipController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Membership $membership)
     {
-        $membership = Membership::findOrFail($id);
         $users = User::all();
         $membershipLevels = MembershipLevel::all();
         return view('memberships.edit', compact('membership', 'users', 'membershipLevels'));
@@ -69,19 +60,9 @@ class MembershipController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MembershipRequest $request, Membership $membership)
     {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'membership_level_id' => 'required|exists:membership_levels,id',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
-            'active' => 'required|boolean',
-            'balance' => 'required|numeric',
-        ]);
-
-        $membership = Membership::findOrFail($id);
-        $membership->update($request->all());
+        $this->save($membership, $request);
         return redirect()->route('memberships.index');
     }
 
@@ -93,5 +74,19 @@ class MembershipController extends Controller
         $membership = Membership::findOrFail($id);
         $membership->delete();
         return redirect()->route('memberships.index');
+    }
+
+    /**
+     * Save or update the membership.
+     */
+    public function save(Membership $membership, MembershipRequest $request)
+    {
+        $membership->user_id = $request->input('user_id');
+        $membership->membership_level_id = $request->input('membership_level_id');
+        $membership->start_date = $request->input('start_date');
+        $membership->end_date = $request->input('end_date');
+        $membership->active = $request->input('active', false); // Default to false if not checked
+        $membership->balance = $request->input('balance');
+        $membership->save();
     }
 }
