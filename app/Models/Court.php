@@ -30,6 +30,12 @@ class Court extends Model
     {
         return $this->hasMany(MaintenanceSchedule::class, 'maintenance_schedule_id');
     }
+    // public function competitionMatches()
+    // {
+    //     return $this->hasMany(CompetitionMatch::class, 'competition_match_id');
+    // }
+
+
 
   
 

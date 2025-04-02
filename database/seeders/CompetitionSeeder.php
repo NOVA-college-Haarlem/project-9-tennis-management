@@ -38,19 +38,6 @@ class CompetitionSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => 'Fall League',
-                'description' => 'Competitive league for intermediate to advanced players.',
-                'start_date' => '2025-09-01',
-                'end_date' => '2025-11-30',
-                'status' => 'upcoming',
-                'min_skill_level' => 3,
-                'max_skill_level' => 5,
-                'format' => 'round-robin',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
         ]);
     }
 }

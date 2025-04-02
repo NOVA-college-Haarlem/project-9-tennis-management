@@ -11,14 +11,15 @@ use Illuminate\Http\Request;
 class CompetitionTeamController extends Controller
 {
     public function index() {
-        $teams = CompetitionTeam::with('competition')->get();
+        $teams = CompetitionTeam::with('competition', 'captain')->get();
         return view('competition_teams.index', compact('teams'));
     }
 
     public function create() {
         $competitions = Competition::all();
         $users = User::all();
-        return view('competition_teams.create', compact('competitions', 'users'));
+        $teams = CompetitionTeam::all();
+        return view('competition_teams.create', compact('competitions', 'users', 'teams'));
     }
 
     public function store(CompetitionTeamRequest $request) {
@@ -33,7 +34,9 @@ class CompetitionTeamController extends Controller
     public function edit(CompetitionTeam $competitionTeam) {
         $competitions = Competition::all();
         $users = User::all();
-        return view('competition_teams.edit', compact('competitionTeam', 'competitions', 'users'));
+        $teams = CompetitionTeam::all();
+        $competitionTeam = CompetitionTeam::with('competition', 'captain')->find($competitionTeam->id);
+        return view('competition_teams.edit', compact('competitionTeam', 'competitions', 'users', 'teams'));
     }
 
     public function update(CompetitionTeamRequest $request, CompetitionTeam $competitionTeam) {
