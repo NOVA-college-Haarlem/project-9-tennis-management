@@ -7,6 +7,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Court Type</th>
+                <th>Court Condition</th>
                 <th>Surface</th>
                 <th>Indoor</th>
                 <th>Active</th>
@@ -19,6 +20,7 @@
                     <td>{{ $court->id }}</td>
                     <td>{{ $court->name }}</td>
                     <td>{{ $court->court_type }}</td>
+                    <td>{{ $court->court_condition }}</td>
                     <td>{{ $court->surface }}</td>
                     <td>{{ $court->indoor ? 'Yes' : 'No' }}</td>
                     <td>{{ $court->active ? 'Yes' : 'No' }}</td>

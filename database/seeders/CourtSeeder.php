@@ -17,6 +17,7 @@ class CourtSeeder extends Seeder
             [
                 'name' => 'Center Court',
                 'court_type' => 'Hard',
+                'court_condition' => 'Unplayable',
                 'surface' => 'Acrylic',
                 'indoor' => false,
                 'active' => true,
@@ -26,6 +27,7 @@ class CourtSeeder extends Seeder
             [
                 'name' => 'Clay Court A',
                 'court_type' => 'Clay',
+                'court_condition' => 'Decent',
                 'surface' => 'Red Clay',
                 'indoor' => false,
                 'active' => true,
@@ -35,6 +37,7 @@ class CourtSeeder extends Seeder
             [
                 'name' => 'Indoor Court 1',
                 'court_type' => 'Synthetic',
+                'court_condition' => 'Excellent',
                 'surface' => 'Rubber',
                 'indoor' => true,
                 'active' => true,
