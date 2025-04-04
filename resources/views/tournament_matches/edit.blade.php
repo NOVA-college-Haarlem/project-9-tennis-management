@@ -25,18 +25,18 @@
             <select name="player1_id" class="form-control" required>
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}" {{ old('player1_id', $tournament_match->player1_id) == $user->id ? 'selected' : '' }}>
-                        {{ $user->firstname }} 
+                        {{ $user->firstname }}
                     </option>
                 @endforeach
             </select>
         </div>
-
+        
         <div class="form-group">
             <label for="player2_id">Player 2</label>
             <select name="player2_id" class="form-control" required>
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}" {{ old('player2_id', $tournament_match->player2_id) == $user->id ? 'selected' : '' }}>
-                        {{ $user->firstname }} 
+                        {{ $user->firstname }}
                     </option>
                 @endforeach
             </select>

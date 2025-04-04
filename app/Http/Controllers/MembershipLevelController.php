@@ -39,7 +39,6 @@ class MembershipLevelController extends Controller
     public function update(MembershipLevelRequest $request, MembershipLevel $membershipLevel)
     {
         $membershipLevel->update($request->all());
-        $this->save($membershipLevel, $request);
         return redirect()->route('membership-levels.index');
     }
 

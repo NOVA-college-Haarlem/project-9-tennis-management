@@ -11,7 +11,15 @@ class TournamentMatch extends Model
 
     use HasFactory;
 
-    protected $fillable = ['tournament_id', 'court_id', 'scheduled_time', 'player1_id', 'player2_id', 'score', 'status'];
+    protected $fillable = [
+        'tournament_id',
+        'player1_id',
+        'player2_id',
+        'player1_score',
+        'player2_score',
+        'status',
+        'scheduled_time',
+    ];
 
 
     public function tournament()
