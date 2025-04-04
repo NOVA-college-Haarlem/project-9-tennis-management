@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courts', function (Blueprint $table) {
+        Schema::create('youth_programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('court_type'); 
-            $table->string('surface');
-            $table->enum('court_condition', ['Excellent', 'Decent', 'Barely Playable', 'Unplayable']); 
-            $table->boolean('indoor')->default(false); 
-            $table->boolean('active')->default(true); 
+            $table->text('description');
+            $table->integer('min_age');
+            $table->integer('max_age');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('schedule');
+            $table->float('fee');
+            $table->integer('capacity');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courts');
+        Schema::dropIfExists('youth_programs');
     }
 };

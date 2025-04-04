@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->integer('duration'); // Duration in days
+            $table->enum('duration_unit', ['day', 'week', 'month', 'year']);
             $table->decimal('price', 8, 2);
             $table->integer('max_booking_days_ahead');
             $table->integer('max_booking_hours');
