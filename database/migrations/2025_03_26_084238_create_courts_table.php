@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('court_type'); 
-            $table->string('surface'); 
+            $table->string('surface');
+            $table->enum('court_condition', ['Excellent', 'Decent', 'Barely Playable', 'Unplayable']); 
             $table->boolean('indoor')->default(false); 
             $table->boolean('active')->default(true); 
             $table->timestamps();
