@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\YouthProgram;
 use App\Models\YouthRegistration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class YouthRegistrationController extends Controller
 {
@@ -40,7 +41,7 @@ class YouthRegistrationController extends Controller
         ]);
 
         YouthRegistration::create([
-            'parent_user_id' => auth()->id(),
+            'parent_user_id' => Auth::id(),
             'program_id' => $request->program_id,
             'child_firstname' => $request->child_firstname,
             'child_lastname' => $request->child_lastname,
