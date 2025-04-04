@@ -22,15 +22,35 @@ class YouthRegistrationController extends Controller
      */
     public function create()
     {
-        return view('youth_registrations.create', compact('youthProgram'));
+        $youthPrograms = YouthProgram::all();
+        return view('youth_registrations.create', compact('youthPrograms'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, YouthProgram $youthProgram)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'program_id' => 'required|exists:youth_programs,id',
+            'child_firstname' => 'required|string|max:255',
+            'child_lastname' => 'required|string|max:255',
+            'child_age' => 'required|integer',
+            'emergency_contact_phone' => 'required|string|max:15',
+        ]);
+
+        YouthRegistration::create([
+            'parent_user_id' => auth()->id(),
+            'program_id' => $request->program_id,
+            'child_firstname' => $request->child_firstname,
+            'child_lastname' => $request->child_lastname,
+            'child_age' => $request->child_age,
+            'emergency_contact_phone' => $request->emergency_contact_phone,
+            'registration_date' => now(),
+            'status' => 'pending',
+        ]);
+
+        return redirect()->route('youth_registrations.index')->with('success', 'Registration successful!');
     }
 
     /**
@@ -46,7 +66,8 @@ class YouthRegistrationController extends Controller
      */
     public function edit(YouthRegistration $youthRegistration)
     {
-        return view('youth_registrations.edit', compact('youthRegistration'));
+        $youthPrograms = YouthProgram::all();
+        return view('youth_registrations.edit', compact('youthRegistration', 'youthPrograms'));
     }
 
     /**
@@ -54,7 +75,24 @@ class YouthRegistrationController extends Controller
      */
     public function update(Request $request, YouthRegistration $youthRegistration)
     {
-        //
+        $request->validate([
+            'program_id' => 'required|exists:youth_programs,id',
+            'child_firstname' => 'required|string|max:255',
+            'child_lastname' => 'required|string|max:255',
+            'child_age' => 'required|integer',
+            'emergency_contact_phone' => 'required|string|max:15',
+        ]);
+
+        $youthRegistration->update([
+            'program_id' => $request->program_id,
+            'child_firstname' => $request->child_firstname,
+            'child_lastname' => $request->child_lastname,
+            'child_age' => $request->child_age,
+            'emergency_contact_phone' => $request->emergency_contact_phone,
+            'status' => $request->status ?? $youthRegistration->status,
+        ]);
+
+        return redirect()->route('youth_registrations.index')->with('success', 'Registration updated successfully!');
     }
 
     /**
