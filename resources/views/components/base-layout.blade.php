@@ -20,8 +20,12 @@
                     <nav class="flex items-center space-x-1 ml-6">
                         <ul class="flex justify-center space-x-4">
                             <li><a href="/home" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Home</a></li>
-                            <li><a href="#" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Link 1</a></li>
-                            <li><a href="#" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Link 2</a></li>
+                            <li><a href="/bookings" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Boeken</a></li>
+                            <li><a href="/courts" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Banen</a></li>
+                            <li><a href="/maintenanceSchedules" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Onderhoud Schema</a></li>
+                            <li><a href="/membership-levels" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Lidmaatschaps Niveau</a></li>
+                            <li><a href="/memberships" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Lidmaatschap</a></li>
+                            <li><a href="/tournaments" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Toernooi</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -36,11 +40,11 @@
     <footer class="bg-green-500 py-4">
         <div class="container mx-auto flex flex-col items-center space-y-4 text-sm">
             <div class="flex space-x-4">
-                <a href="/about" class="footer-link text-white transition duration-200">About Us</a>
+                <a href="/about" class="footer-link text-white transition duration-200">Over Ons</a>
                 <a href="/contact" class="footer-link text-white transition duration-200">Contact</a>
                 <a href="/dashboard" class="footer-link text-white transition duration-200">Dashboard</a>
-                <a href="/privacy" class="footer-link text-white transition duration-200">Privacy Policy</a>
-                <a href="/terms" class="footer-link text-white transition duration-200">Terms of Service</a>
+                <a href="/privacy" class="footer-link text-white transition duration-200">Privacybeleid</a>
+                <a href="/terms" class="footer-link text-white transition duration-200">Algemene Voorwaarden</a>
             </div>
             <div class="footer-text">
                 <p class="text-white">© 2025 <span class="font-semibold">Tennisclub</span>. All rights reserved.</p>
