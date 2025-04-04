@@ -1,44 +1,29 @@
 <x-base-layout>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Homepagina</title>
-        <style>
-            .hero {
-                position: relative;
-                text-align: center;
-                color: white;
-            }
-
-            .hero-text {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .hero-text h1 {
-                font-size: 4rem; /* Twice as large */
-                font-weight: bold;
-            }
-
-            .hero-text p {
-                font-size: 1.5rem; /* Larger paragraph text */
-                margin-top: 3rem; /* Increased spacing */
-            }
-        </style>
-    </head>
-    <body>
-        <div class="hero">
-            <img src="/images/Court.jpg" alt="Court Image" class="w-full h-auto object-cover" />
-            <div class="hero-text">
-                <h1>Welcome to the Tennis Club</h1>
-                <p>Join us for a great time on the court!</p>
+    <div class="hero relative w-full h-[90vh] md:h-screen overflow-hidden"> <!-- Adjust height here -->
+        <img src="/images/Court.jpg" alt="Court Image" class="w-full h-full object-cover" /> <!-- Use object-cover for better scaling -->
+        <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-8">Welcome to the Tennis Club</h1>
+            <p class="text-xl md:text-2xl max-w-2xl">Join us for a great time on the court!</p>
+            <div class="mt-12">
+                <a href="/register"
+                class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                Join Now
+             </a>
             </div>
         </div>
-    </body>
-    </html>
+    </div>
+
+    <!-- Additional sections can go here -->
+    <div class="bg-white text-gray-800 py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-green-700 mb-4">Our Facilities</h2>
+                <p class="text-xl max-w-3xl mx-auto">World-class courts and training facilities for players of all levels
+                </p>
+            </div>
+
+            <!-- Facility cards would go here -->
+        </div>
+    </div>
 </x-base-layout>
