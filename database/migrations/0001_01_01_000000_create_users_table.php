@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('housenumber');
             $table->string('postal_code');
             $table->string('city');
+            // $table->enum('role', ['user','clublid', 'coach', 'competitie_coördinator', 'toernooidirecteur', 'onderhoudsmanager', 'proshopmanager', 'jeugdprogrammacoördinator', 'clubbeheerder', 'evenementencoördinator', 'gast' ])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
