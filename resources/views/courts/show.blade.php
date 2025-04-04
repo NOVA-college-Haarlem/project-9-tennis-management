@@ -1,4 +1,4 @@
-<div class="container">
+<x-base-layout><div class="container">
     <h2>Court Details</h2>
     <table class="table table-bordered">
         <tr>
@@ -25,3 +25,4 @@
     <a href="{{ route('courts.edit', $court->id) }}" class="btn btn-warning">Edit Court</a>
     <a href="{{ route('courts.index') }}" class="btn btn-secondary">Back to List</a>
 </div>
+</x-base-layout>
