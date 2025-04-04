@@ -1,3 +1,4 @@
+<x-base-layout> 
 <div class="container">
     <h2>Maintenance Schedules</h2>
     <a href="{{ route('maintenanceschedules.create') }}" class="btn btn-primary mb-3">Create Maintenance Schedule</a>
@@ -34,3 +35,4 @@
         </tbody>
     </table>
 </div>
+</x-base-layout> 
