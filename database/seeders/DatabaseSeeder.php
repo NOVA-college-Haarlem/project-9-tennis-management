@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            YouthProggramsSeeder::class,
+            YouthRegistrationsSeeder::class,
             CourtSeeder::class,
             BookingSeeder::class,
             MaintenanceScheduleSeeder::class,
@@ -32,8 +34,6 @@ class DatabaseSeeder extends Seeder
             MembershipSeeder::class,
             EquipmentSeeder::class,
             EquipmentRentalSeeder::class,
-            YouthProggramsSeeder::class,
-            YouthRegistrationsSeeder::class,
         ]);
     }
 }
