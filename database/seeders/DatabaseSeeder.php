@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             MembershipSeeder::class,
             EquipmentSeeder::class,
             EquipmentRentalSeeder::class,
+            YouthProggramsSeeder::class,
+            YouthRegistrationsSeeder::class,
         ]);
     }
 }
