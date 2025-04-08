@@ -1,23 +1,69 @@
-<h1>Create Youth Program</h1>
-<form action="{{ route('youth_programs.store') }}" method="POST">
-    @csrf
-    <label>Name:</label>
-    <input type="text" name="name" required>
-    <label>Description:</label>
-    <textarea name="description" required></textarea>
-    <label>Min Age:</label>
-    <input type="number" name="min_age" required>
-    <label>Max Age:</label>
-    <input type="number" name="max_age" required>
-    <label>Start Date:</label>
-    <input type="date" name="start_date" required>
-    <label>End Date:</label>
-    <input type="date" name="end_date" required>
-    <label>Schedule:</label>
-    <input type="text" name="schedule" required>
-    <label>Fee:</label>
-    <input type="number" step="0.01" name="fee" required>
-    <label>Capacity:</label>
-    <input type="number" name="capacity" required>
-    <button type="submit" class="btn btn-success">Create</button>
-</form>
+<x-base-layout>
+    <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <h2 class="text-3xl font-bold text-gray-800">➕ Create Youth Program</h2>
+                <a href="{{ route('youth_programs.index') }}"
+                   class="bg-indigo-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2">
+                   <i class="fas fa-arrow-left"></i> Back to Programs
+                </a>
+            </div>
+
+            <form action="{{ route('youth_programs.store') }}" method="POST" class="space-y-6">
+                @csrf
+                <div class="bg-indigo-50 p-6 rounded-xl shadow-inner space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" name="name" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea name="description" required
+                                  class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Min Age</label>
+                        <input type="number" name="min_age" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Max Age</label>
+                        <input type="number" name="max_age" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                        <input type="date" name="start_date" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                        <input type="date" name="end_date" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Schedule</label>
+                        <input type="text" name="schedule" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Fee</label>
+                        <input type="number" step="0.01" name="fee" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Capacity</label>
+                        <input type="number" name="capacity" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2">
+                    <i class="fas fa-plus-circle"></i> Create Program
+                </button>
+            </form>
+        </div>
+    </main>
+</x-base-layout>
