@@ -1,80 +1,120 @@
-{{-- filepath: c:\Users\fevek\Herd\project-9-tennis-management\resources\views\users\create.blade.php --}}
 <x-base-layout>
-    <div class="container mx-auto p-4">
-        <h2 class="text-2xl font-bold mb-4">Create User</h2>
-
-        <form action="{{ route('users.store') }}" method="POST" class="space-y-4">
-            @csrf
-
-            <div>
-                <label for="firstname" class="block text-sm font-medium">Firstname</label>
-                <input type="text" name="firstname" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('firstname') }}" required>
+    <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
+            <!-- Header Section -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <h2 class="text-3xl font-bold text-gray-800">➕ Create User</h2>
+                <a href="{{ route('users.index') }}"
+                   class="bg-indigo-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2">
+                   <i class="fas fa-arrow-left"></i> Back to Users
+                </a>
             </div>
 
-            <div>
-                <label for="lastname" class="block text-sm font-medium">Lastname</label>
-                <input type="text" name="lastname" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('lastname') }}" required>
-            </div>
+            <!-- Form Section -->
+            <form action="{{ route('users.store') }}" method="POST" class="space-y-6">
+                @csrf
+                <div class="bg-indigo-50 p-6 rounded-xl shadow-inner space-y-6">
+                    <!-- Firstname -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Firstname</label>
+                        <input type="text" name="firstname" value="{{ old('firstname') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="email" class="block text-sm font-medium">Email</label>
-                <input type="email" name="email" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('email') }}" required>
-            </div>
+                    <!-- Lastname -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Lastname</label>
+                        <input type="text" name="lastname" value="{{ old('lastname') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="phonenumber" class="block text-sm font-medium">Phone Number</label>
-                <input type="text" name="phonenumber" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('phonenumber') }}" required>
-            </div>
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" value="{{ old('email') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="date_of_birth" class="block text-sm font-medium">Date of Birth</label>
-                <input type="date" name="date_of_birth" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('date_of_birth') }}" required>
-            </div>
+                    <!-- Phone Number -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="text" name="phonenumber" value="{{ old('phonenumber') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="skill_level" class="block text-sm font-medium">Skill Level</label>
-                <input type="number" name="skill_level" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('skill_level', 1) }}" min="1" required>
-            </div>
+                    <!-- Date of Birth -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                        <input type="date" name="date_of_birth" value="{{ old('date_of_birth') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="street" class="block text-sm font-medium">Street</label>
-                <input type="text" name="street" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('street') }}" required>
-            </div>
+                    <!-- Skill Level -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Skill Level</label>
+                        <input type="number" name="skill_level" value="{{ old('skill_level', 1) }}" min="1" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="housenumber" class="block text-sm font-medium">House Number</label>
-                <input type="text" name="housenumber" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('housenumber') }}" required>
-            </div>
+                    <!-- Street -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Street</label>
+                        <input type="text" name="street" value="{{ old('street') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="postal_code" class="block text-sm font-medium">Postal Code</label>
-                <input type="text" name="postal_code" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('postal_code') }}" required>
-            </div>
+                    <!-- House Number -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">House Number</label>
+                        <input type="text" name="housenumber" value="{{ old('housenumber') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="city" class="block text-sm font-medium">City</label>
-                <input type="text" name="city" class="w-full border border-gray-300 rounded px-3 py-2" value="{{ old('city') }}" required>
-            </div>
+                    <!-- Postal Code -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                        <input type="text" name="postal_code" value="{{ old('postal_code') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="role" class="block text-sm font-medium">Role</label>
-                <select name="role" class="w-full border border-gray-300 rounded px-3 py-2">
-                    <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
-                    <option value="coach" {{ old('role') == 'coach' ? 'selected' : '' }}>Coach</option>
-                </select>
-            </div>
+                    <!-- City -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                        <input type="text" name="city" value="{{ old('city') }}" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <div>
-                <label for="password" class="block text-sm font-medium">Password</label>
-                <input type="password" name="password" class="w-full border border-gray-300 rounded px-3 py-2" required>
-            </div>
+                    <!-- Role -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                        <select name="role" required
+                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition">
+                            <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                            <option value="coach" {{ old('role') == 'coach' ? 'selected' : '' }}>Coach</option>
+                        </select>
+                    </div>
 
-            <div>
-                <label for="password_confirmation" class="block text-sm font-medium">Confirm Password</label>
-                <input type="password" name="password_confirmation" class="w-full border border-gray-300 rounded px-3 py-2" required>
-            </div>
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" name="password" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
 
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Create User</button>
-        </form>
-    </div>
+                    <!-- Confirm Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <input type="password" name="password_confirmation" required
+                               class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition" />
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2">
+                    <i class="fas fa-plus-circle"></i> Create User
+                </button>
+            </form>
+        </div>
+    </main>
 </x-base-layout>
