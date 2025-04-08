@@ -20,13 +20,14 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->integer('skill_level')->default(1);
-            $table->json('availability')->nullable();
+            $table->string('availability')->nullable();
             $table->string('password');
             $table->string('phonenumber');
             $table->string('street');
             $table->string('housenumber');
             $table->string('postal_code');
             $table->string('city');
+            $table->enum('role', ['user', 'coach'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
