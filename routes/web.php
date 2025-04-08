@@ -53,26 +53,26 @@ Route::get('/terms', [TermsOfServiceController::class, 'index'])->name('terms');
 Route::get('/about', [AboutUsController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-//memberships
-Route::middleware('auth')->group(function () {
-    Route::get('/memberships', [MembershipController::class, 'index'])->name('memberships.index');
-    Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create');
-    Route::post('/memberships', [MembershipController::class, 'store'])->name('memberships.store');
-    Route::get('/memberships/{membership}', [MembershipController::class, 'show'])->name('memberships.show');
-    Route::get('/memberships/{membership}/edit', [MembershipController::class, 'edit'])->name('memberships.edit');
-    Route::patch('/memberships/{membership}', [MembershipController::class, 'update'])->name('memberships.update');
-    Route::delete('/memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy');
+// Memberships
+Route::name('memberships.')->prefix('memberships')->group(function () {
+    Route::get('/', [MembershipController::class, 'index'])->name('index');
+    Route::get('/create', [MembershipController::class, 'create'])->name('create');
+    Route::post('/', [MembershipController::class, 'store'])->name('store');
+    Route::get('/{membership}', [MembershipController::class, 'show'])->name('show');
+    Route::get('/{membership}/edit', [MembershipController::class, 'edit'])->name('edit');
+    Route::patch('/{membership}', [MembershipController::class, 'update'])->name('update');
+    Route::delete('/{membership}', [MembershipController::class, 'destroy'])->name('destroy');
 });
 
 // Membership Levels
-Route::middleware('auth')->group(function () {
-    Route::get('/membership-levels', [MembershipLevelController::class, 'index'])->name('membership-levels.index');
-    Route::get('/membership-levels/create', [MembershipLevelController::class, 'create'])->name('membership-levels.create');
-    Route::post('/membership-levels', [MembershipLevelController::class, 'store'])->name('membership-levels.store');
-    Route::get('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'show'])->name('membership-levels.show');
-    Route::get('/membership-levels/{membershipLevel}/edit', [MembershipLevelController::class, 'edit'])->name('membership-levels.edit');
-    Route::patch('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'update'])->name('membership-levels.update');
-    Route::delete('/membership-levels/{membershipLevel}', [MembershipLevelController::class, 'destroy'])->name('membership-levels.destroy');
+Route::name('membership-levels.')->prefix('membership-levels')->group(function () {
+    Route::get('/', [MembershipLevelController::class, 'index'])->name('index');
+    Route::get('/create', [MembershipLevelController::class, 'create'])->name('create');
+    Route::post('/', [MembershipLevelController::class, 'store'])->name('store');
+    Route::get('/{membershipLevel}', [MembershipLevelController::class, 'show'])->name('show');
+    Route::get('/{membershipLevel}/edit', [MembershipLevelController::class, 'edit'])->name('edit');
+    Route::patch('/{membershipLevel}', [MembershipLevelController::class, 'update'])->name('update');
+    Route::delete('/{membershipLevel}', [MembershipLevelController::class, 'destroy'])->name('destroy');
 });
 
 // Bookings
