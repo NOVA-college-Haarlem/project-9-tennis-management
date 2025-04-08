@@ -12,6 +12,15 @@
                 <input type="text" name="court_type" class="form-control" required>
             </div>
             <div class="form-group">
+                <label for="court_condition">Court Condition</label>
+                <select name="court_condition" id="court_condition" class="form-control">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Decent">Decent</option>
+                    <option value="Barely Playable">Barely Playable</option>
+                    <option value="Unplayable">Unplayable</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="surface">Surface</label>
                 <input type="text" name="surface" class="form-control" required>
             </div>

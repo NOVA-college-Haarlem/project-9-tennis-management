@@ -24,6 +24,7 @@ class CourtRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'court_type' => ['required', 'string'],
+            'court_condition' => ['required', 'string', 'in:Excellent,Decent,Barely Playable,Unplayable'],
             'surface' => ['required', 'string'],
             'indoor' => ['required', 'boolean'],
             'active' => ['required', 'boolean'],

@@ -23,6 +23,15 @@
                 <input type="text" name="court_type" class="form-control" value="{{ $court->court_type }}" required>
             </div>
             <div class="form-group">
+                <label for="court_condition">Court Condition</label>
+                <select name="court_condition" id="court_condition" class="form-control">
+                    <option value="Excellent" {{ $court->court_condition == 'Excellent' ? 'selected' : '' }}>Excellent</option>
+                    <option value="Decent" {{ $court->court_condition == 'Decent' ? 'selected' : '' }}>Decent</option>
+                    <option value="Barely Playable" {{ $court->court_condition == 'Barely Playable' ? 'selected' : '' }}>Barely Playable</option>
+                    <option value="Unplayable" {{ $court->court_condition == 'Unplayable' ? 'selected' : '' }}>Unplayable</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="surface">Surface</label>
                 <input type="text" name="surface" class="form-control" value="{{ $court->surface }}" required>
             </div>

@@ -10,6 +10,10 @@
             <td>{{ $court->court_type }}</td>
         </tr>
         <tr>
+            <th>Court Condition</th>
+            <td>{{ $court->court_condition }}</td>
+        </tr>
+        <tr>
             <th>Surface</th>
             <td>{{ $court->surface }}</td>
         </tr>
