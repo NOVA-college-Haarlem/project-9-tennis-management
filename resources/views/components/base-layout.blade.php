@@ -26,6 +26,7 @@
                             <li><a href="/membership-levels" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Lidmaatschaps Niveau</a></li>
                             <li><a href="/memberships" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Lidmaatschap</a></li>
                             <li><a href="/tournaments" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Toernooi</a></li>
+                            <li><a href="/users" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Users</a></li>
                         </ul>
                     </nav>
                 </div>
