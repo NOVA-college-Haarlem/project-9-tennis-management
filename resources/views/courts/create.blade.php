@@ -42,6 +42,15 @@
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                     <div class="form-group">
+                <label for="court_condition">Court Condition</label>
+                <select name="court_condition" id="court_condition" class="form-control">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Decent">Decent</option>
+                    <option value="Barely Playable">Barely Playable</option>
+                    <option value="Unplayable">Unplayable</option>
+                </select>
+            </div>
 
                     <!-- Surface -->
                     <div>
@@ -78,4 +87,5 @@
             </form>
         </div>
     </main>
+
 </x-base-layout>

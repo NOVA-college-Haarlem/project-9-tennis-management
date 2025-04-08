@@ -16,6 +16,7 @@ class Court extends Model
     protected $fillable = [
         'name',
         'court_type',
+        'court_condition',
         'surface',
         'indoor',
         'active',
