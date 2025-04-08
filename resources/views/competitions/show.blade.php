@@ -1,5 +1,4 @@
 <x-base-layout>
-<<<<<<< HEAD
     <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
             <!-- Header Section -->
@@ -69,26 +68,4 @@
             </div>
         </div>
     </main>
-=======
-    <div class="container">
-        <h2>{{ $competition->name }}</h2>
-        <p><strong>Description:</strong> {{ $competition->description }}</p>
-        <p><strong>Start Date:</strong> {{ $competition->start_date }}</p>
-        <p><strong>End Date:</strong> {{ $competition->end_date }}</p>
-        <p><strong>Min Skill Level:</strong> {{ $competition->min_skill_level }}</p>
-        <p><strong>Max Skill Level:</strong> {{ $competition->max_skill_level }}</p>
-        <p><strong>Format:</strong> {{ ucfirst($competition->format) }}</p>
-        <p><strong>Status:</strong> {{ ucfirst($competition->status) }}</p>
-
-        <a href="{{ route('competitions.index') }}" class="btn btn-primary">Back to List</a>
-        <a href="{{ route('competitions.edit', $competition->id) }}" class="btn btn-warning">Edit</a>
-
-        <form action="{{ route('competitions.destroy', $competition->id) }}" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger"
-                onclick="return confirm('Are you sure you want to delete this competition?')">Delete</button>
-        </form>
-    </div>
->>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>

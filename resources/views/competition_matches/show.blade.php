@@ -1,5 +1,4 @@
 <x-base-layout>
-<<<<<<< HEAD
     <main class="container mx-auto my-12 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
             <!-- Header Section -->
@@ -79,14 +78,4 @@
             </div>
         </div>
     </main>
-=======
-    <h1>Match Details</h1>
-    <p>Competition: {{ $competitionMatch->competition->name }}</p>
-    <p>Team 1: {{ $competitionMatch->team1->name }}</p>
-    <p>Team 2: {{ $competitionMatch->team2->name }}</p>
-    <p>Scheduled Time: {{ $competitionMatch->scheduled_time }}</p>
-    <p>Court: {{ $competitionMatch->court->name }}</p>
-    <p>Status: {{ $competitionMatch->status }}</p>
-    <a href="{{ route('competition_matches.index') }}">Back</a>
->>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>
