@@ -27,7 +27,6 @@ class CourtRequest extends FormRequest
             'court_condition' => ['required', 'string', 'in:Excellent,Decent,Barely Playable,Unplayable'],
             'surface' => ['required', 'string'],
             'indoor' => ['required', 'boolean'],
-            'active' => ['required', 'boolean'],
         ];
     }
 }

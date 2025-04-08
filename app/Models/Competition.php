@@ -9,7 +9,7 @@ class Competition extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'start_date', 'end_date', 'min_skill_level', 'max_skill_level', 'format', 'status'];
+    protected $fillable = ['name', 'description', 'start_date', 'end_date', 'min_skill_level', 'max_skill_level', 'status'];
 
     public function teams()
     {

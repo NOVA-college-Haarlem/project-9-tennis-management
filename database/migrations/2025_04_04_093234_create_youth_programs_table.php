@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('competitions', function (Blueprint $table) {
+        Schema::create('youth_programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->integer('min_age');
+            $table->integer('max_age');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('min_skill_level');
-            $table->integer('max_skill_level');
-            // $table->string('format'); // e.g., "round-robin", "knockout"
-            $table->string('status')->default('upcoming'); // upcoming, ongoing, completed
+            $table->string('schedule');
+            $table->float('fee');
+            $table->integer('capacity');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('competitions');
+        Schema::dropIfExists('youth_programs');
     }
 };

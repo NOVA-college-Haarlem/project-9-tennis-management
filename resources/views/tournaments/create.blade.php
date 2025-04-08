@@ -1,66 +1,88 @@
 <x-base-layout>
-    <!DOCTYPE html>
-    <html lang="en">
+    <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
+            <!-- Header Section -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+                <h2 class="text-3xl font-bold text-gray-800">➕ Create Tournament</h2>
+                <a href="{{ route('tournaments.index') }}"
+                   class="bg-indigo-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2">
+                   <i class="fas fa-arrow-left"></i> Back to Tournaments
+                </a>
+            </div>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Create Tournament</title>
-        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> --}}
-    </head>
-
-    <body>
-        <div class="container mt-5">
-            <h1>Create Tournament</h1>
-            <form action="{{ route('tournaments.store') }}" method="POST">
+            <!-- Form Section -->
+            <form action="{{ route('tournaments.store') }}" method="POST" class="space-y-6">
                 @csrf
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" required>
+
+                <div class="bg-indigo-50 p-6 rounded-xl shadow-inner space-y-6">
+
+                    <!-- Name -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" name="name" value="{{ old('name') }}"
+                            class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea name="description" required
+                            class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">{{ old('description') }}</textarea>
+                    </div>
+
+                    <!-- Start & End Date -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                            <input type="date" name="start_date" value="{{ old('start_date') }}"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                            <input type="date" name="end_date" value="{{ old('end_date') }}"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                        </div>
+                    </div>
+
+                    <!-- Min & Max Skill Level -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Min Skill Level</label>
+                            <input type="number" name="min_skill_level" value="{{ old('min_skill_level') }}"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Max Skill Level</label>
+                            <input type="number" name="max_skill_level" value="{{ old('max_skill_level') }}"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                        </div>
+                    </div>
+
+                    <!-- Entry Fee -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Entry Fee</label>
+                        <input type="number" step="0.01" name="entry_fee" value="{{ old('entry_fee') }}"
+                            class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
+                    </div>
+
+                    <!-- Hidden Status -->
+                    <input type="hidden" name="status" value="upcoming">
+
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea name="description" class="form-control"></textarea>
+
+                <!-- Submit Button -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button type="submit"
+                            class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2">
+                        <i class="fas fa-plus-circle"></i> Create Tournament
+                    </button>
+
+                    <a href="{{ route('tournaments.index') }}"
+                       class="w-full sm:w-auto bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+                        <i class="fas fa-times-circle"></i> Cancel
+                    </a>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Start Date</label>
-                    <input type="date" name="start_date" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">End Date</label>
-                    <input type="date" name="end_date" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Min Skill Level</label>
-                    <input type="number" name="min_skill_level" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Max Skill Level</label>
-                    <input type="number" name="max_skill_level" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Format</label>
-                    <input type="text" name="format" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Entry Fee</label>
-                    <input type="number" step="0.01" name="entry_fee" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Status</label>
-                    <select name="status" class="form-select" required>
-                        <option value="pending">Pending</option>
-                        <option value="upcoming">Upcoming</option>
-                        <option value="ongoing">Ongoing</option>
-                        <option value="completed">Completed</option>
-                        <option value="canceled">Canceled</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-success">Create</button>
-                <a href="{{ route('tournaments.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
-    </body>
-
-    </html>
+    </main>
 </x-base-layout>

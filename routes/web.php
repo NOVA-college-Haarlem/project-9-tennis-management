@@ -22,7 +22,10 @@ use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentMatchController;
 use App\Http\Controllers\TournamentRegistrationController;
+
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\YouthProgramController;
+use App\Http\Controllers\YouthRegistrationController;
 use App\Http\Requests\CompetitionTeamRequest;
 use Database\Seeders\CompetitionMatchSeeder;
 use Illuminate\Support\Facades\Route;
@@ -227,6 +230,32 @@ Route::name("users.")->group(function () {
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+    });
+});
+
+// Youth Programs
+Route::name("youth_programs.")->group(function () {
+    Route::prefix("youth_programs")->group(function () {
+        Route::get('/', [YouthProgramController::class, 'index'])->name('index');
+        Route::get('/create', [YouthProgramController::class, 'create'])->name('create');
+        Route::post('/', [YouthProgramController::class, 'store'])->name('store');
+        Route::get('/{youth_program}', [YouthProgramController::class, 'show'])->name('show');
+        Route::get('/{youth_program}/edit', [YouthProgramController::class, 'edit'])->name('edit');
+        Route::put('/{youth_program}', [YouthProgramController::class, 'update'])->name('update');
+        Route::delete('/{youth_program}', [YouthProgramController::class, 'destroy'])->name('destroy');
+    });
+});
+
+// Youth Registrations
+Route::name("youth_registrations.")->group(function () {
+    Route::prefix("youth_registrations")->group(function () {
+        Route::get('/', [YouthRegistrationController::class, 'index'])->name('index');
+        Route::get('/create', [YouthRegistrationController::class, 'create'])->name('create');
+        Route::post('/', [YouthRegistrationController::class, 'store'])->name('store');
+        Route::get('/{youth_registration}', [YouthRegistrationController::class, 'show'])->name('show');
+        Route::get('/{youth_registration}/edit', [YouthRegistrationController::class, 'edit'])->name('edit');
+        Route::put('/{youth_registration}', [YouthRegistrationController::class, 'update'])->name('update');
+        Route::delete('/{youth_registration}', [YouthRegistrationController::class, 'destroy'])->name('destroy');
     });
 });
 

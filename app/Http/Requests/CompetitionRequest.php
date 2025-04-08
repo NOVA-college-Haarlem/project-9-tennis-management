@@ -28,7 +28,6 @@ class CompetitionRequest extends FormRequest
             'end_date' => 'required|date',
             'min_skill_level' => 'required|integer|min:1',
             'max_skill_level' => 'required|integer|gte:min_skill_level',
-            'format' => 'required|string|in:round-robin,knockout',
             'status' => 'nullable|string|in:upcoming,ongoing,completed',
         ];
     }
