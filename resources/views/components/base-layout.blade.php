@@ -111,10 +111,10 @@
           </div>
           <p class="text-gray-400 text-sm mb-4">Premium tennis facilities with professional coaching and competitive tournaments.</p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/watch?v=z7qeGeNqQLE" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
 
@@ -122,7 +122,7 @@
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li><a href="/about" class="footer-link text-gray-400 hover:text-white">About Us</a></li>
-            <li><a href="/membership" class="footer-link text-gray-400 hover:text-white">Membership</a></li>
+            <li><a href="/membership-levels" class="footer-link text-gray-400 hover:text-white">Kinds of Memberships</a></li>
             <li><a href="/coaching" class="footer-link text-gray-400 hover:text-white">Coaching Programs</a></li>
             <li><a href="/tournaments" class="footer-link text-gray-400 hover:text-white">Upcoming Events</a></li>
           </ul>
