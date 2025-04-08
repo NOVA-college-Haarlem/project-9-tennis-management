@@ -70,15 +70,20 @@
           </div>
         </div>
 
-        <nav class="hidden md:flex items-center space-x-1 ml-6">
-          <ul class="flex justify-center space-x-6">
-            <li><a href="/home" class="nav-link px-4 py-2 text-gray-700 font-medium hover:text-green-600">Home</a></li>
-            <li><a href="/bookings" class="nav-link px-4 py-2 text-gray-700 font-medium hover:text-green-600">Booking</a></li>
-            <li><a href="#" class="nav-link px-4 py-2 text-gray-700 font-medium hover:text-green-600">Coaching</a></li>
-            <li><a href="#" class="nav-link px-4 py-2 text-gray-700 font-medium hover:text-green-600">Membership</a></li>
-            <li><a href="#" class="nav-link px-4 py-2 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
-          </ul>
-        </nav>
+        <nav class="hidden md:flex items-center ml-4">
+            <ul class="flex justify-center space-x-3 text-sm">
+              <li><a href="/home" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Home</a></li>
+              <li><a href="/courts" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Courts</a></li>
+              <li><a href="/bookings" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Booking</a></li>
+              <li><a href="/competitions" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Competition</a></li>
+              <li><a href="/tournaments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
+              <li><a href="/equipments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Equipments</a></li>
+              <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Coaching</a></li>
+              <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Membership</a></li>
+              <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">More</a></li>
+            </ul>
+          </nav>
+          
 
         <div class="flex items-center space-x-4">
           <a href="/login" class="text-sm font-medium text-green-600 hover:text-green-700">Sign In</a>
