@@ -72,14 +72,13 @@
         <nav class="hidden md:flex items-center ml-4">
             <ul class="flex justify-center space-x-3 text-sm">
               <li><a href="/home" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Home</a></li>
-              <li><a href="/courts" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Courts</a></li>
               <li><a href="/bookings" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Booking</a></li>
               <li><a href="/competitions" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Competition</a></li>
-              <li><a href="/tournaments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
+              <li><a href="/courts" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Courts</a></li>
               <li><a href="/equipments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Equipments</a></li>
-              <li><a href="/users" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Users</a></li>
-              <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Coaching</a></li>
-              <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Membership</a></li>
+              <li><a href="/memberships" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Memberships</a></li>
+              <li><a href="/tournaments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
+              <li><a href="/users" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Users</a></li>
               <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">More</a></li>
             </ul>
           </nav>
@@ -112,10 +111,10 @@
           </div>
           <p class="text-gray-400 text-sm mb-4">Premium tennis facilities with professional coaching and competitive tournaments.</p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/TennisClub" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/watch?v=z7qeGeNqQLE" class="text-gray-400 hover:text-white transition duration-200"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
 
@@ -123,7 +122,7 @@
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li><a href="/about" class="footer-link text-gray-400 hover:text-white">About Us</a></li>
-            <li><a href="/membership" class="footer-link text-gray-400 hover:text-white">Membership</a></li>
+            <li><a href="/membership-levels" class="footer-link text-gray-400 hover:text-white">Kinds of Memberships</a></li>
             <li><a href="/coaching" class="footer-link text-gray-400 hover:text-white">Coaching Programs</a></li>
             <li><a href="/tournaments" class="footer-link text-gray-400 hover:text-white">Upcoming Events</a></li>
           </ul>

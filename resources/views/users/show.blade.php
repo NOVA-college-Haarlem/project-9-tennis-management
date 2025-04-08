@@ -1,24 +1,83 @@
 {{-- filepath: c:\Users\fevek\Herd\project-9-tennis-management\resources\views\users\show.blade.php --}}
 <x-base-layout>
-    <div class="container mx-auto p-4">
-        <h2 class="text-2xl font-bold mb-4">{{ $user->firstname }} Details</h2>
-        <div class="bg-white shadow-md rounded p-6">
-            <p><span class="font-bold">First Name:</span> {{ $user->firstname }}</p>
-            <p><span class="font-bold">Last Name:</span> {{ $user->lastname }}</p>
-            <p><span class="font-bold">Email:</span> {{ $user->email }}</p>
-            <p><span class="font-bold">Phone Number:</span> {{ $user->phone_number }}</p>
-            <p><span class="font-bold">Date of Birth:</span> {{ $user->date_of_birth }}</p>
-            <p><span class="font-bold">Skill Level:</span> {{ $user->skill_level }}</p>
-            <p><span class="font-bold">Availability:</span> {{ $user->availability }}</p>
-            <p><span class="font-bold">Street:</span> {{ $user->street }}</p>
-            <p><span class="font-bold">House Number:</span> {{ $user->housenumber }}</p>
-            <p><span class="font-bold">Postal Code:</span> {{ $user->postal_code }}</p>
-            <p><span class="font-bold">City:</span> {{ $user->city }}</p>
+    <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
+            <!-- Header Section -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <h2 class="text-3xl font-bold text-gray-800">👤 User Details</h2>
+                <a href="{{ route('users.index') }}"
+                   class="bg-indigo-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2">
+                   <i class="fas fa-arrow-left"></i> Back to Users
+                </a>
+            </div>
+
+            <!-- Details Section -->
+            <div class="bg-indigo-50 p-6 rounded-xl shadow-inner space-y-4 text-gray-800">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-sm text-gray-500">Firstname</p>
+                        <p class="text-lg font-medium">{{ $user->firstname }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Lastname</p>
+                        <p class="text-lg font-medium">{{ $user->lastname }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Email</p>
+                        <p class="text-lg font-medium">{{ $user->email }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Phone Number</p>
+                        <p class="text-lg font-medium">{{ $user->phonenumber }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Date of Birth</p>
+                        <p class="text-lg font-medium">{{ $user->date_of_birth }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Skill Level</p>
+                        <p class="text-lg font-medium">{{ $user->skill_level }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Street</p>
+                        <p class="text-lg font-medium">{{ $user->street }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">House Number</p>
+                        <p class="text-lg font-medium">{{ $user->housenumber }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Postal Code</p>
+                        <p class="text-lg font-medium">{{ $user->postal_code }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">City</p>
+                        <p class="text-lg font-medium">{{ $user->city }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Role</p>
+                        <p class="text-lg font-medium">{{ ucfirst($user->role) }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="{{ route('users.edit', $user->id) }}"
+                   class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-xl shadow-md hover:shadow-xl flex items-center gap-2 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-edit"></i> Edit User
+                </a>
+
+                <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                      onsubmit="return confirm('Are you sure you want to delete this user?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"
+                            class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-xl shadow-md hover:shadow-xl flex items-center gap-2 transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-trash"></i> Delete User
+                    </button>
+                </form>
+            </div>
         </div>
-        <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="mt-4">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded" onclick="return confirm('Are you sure?')">Delete</button>
-        </form>
-    </div>
+    </main>
 </x-base-layout>
