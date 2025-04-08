@@ -1,5 +1,4 @@
 <x-base-layout>
-<<<<<<< HEAD
     <main class="container mx-auto my-12 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
             <!-- Header Section -->
@@ -57,10 +56,4 @@
             </div>
         </div>
     </main>
-=======
-    <h1>{{ $competitionTeam->name }}</h1>
-    <p>Competition: {{ $competitionTeam->competition->name }}</p>
-    <p>Captain: {{ $competitionTeam->captain->firstname }} {{ $competitionTeam->captain->lastname }}</p>
-    <a href="{{ route('competition_teams.index') }}">Back</a>
->>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>
