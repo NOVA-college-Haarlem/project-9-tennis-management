@@ -21,6 +21,10 @@
                         <p class="text-sm text-gray-500">Court Type</p>
                         <p class="text-lg font-medium">{{ $court->court_type }}</p>
                     </div>
+                    <tr>
+            <th>Court Condition</th>
+            <td>{{ $court->court_condition }}</td>
+        </tr>
                     <div>
                         <p class="text-sm text-gray-500">Surface</p>
                         <p class="text-lg font-medium">{{ $court->surface }}</p>

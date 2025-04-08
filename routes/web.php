@@ -22,6 +22,8 @@ use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentMatchController;
 use App\Http\Controllers\TournamentRegistrationController;
+
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\YouthProgramController;
 use App\Http\Controllers\YouthRegistrationController;
 use App\Http\Requests\CompetitionTeamRequest;
@@ -215,6 +217,19 @@ Route::name("equipment_rentals.")->group(function () {
         Route::get('/{equipment_rental}/edit', [EquipmentRentalController::class, 'edit'])->name('edit');
         Route::put('/{equipment_rental}', [EquipmentRentalController::class, 'update'])->name('update');
         Route::delete('/{equipment_rental}', [EquipmentRentalController::class, 'destroy'])->name('destroy');
+    });
+});
+
+//Users Routes
+Route::name("users.")->group(function () {
+    Route::prefix("users")->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/', [UserController::class, 'store'])->name('store');
+        Route::get('/{user}', [UserController::class, 'show'])->name('show');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+        Route::put('/{user}', [UserController::class, 'update'])->name('update');
+        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
     });
 });
 

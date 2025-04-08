@@ -41,6 +41,17 @@
                                class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" required>
                     </div>
 
+                    <!-- Court Condition -->
+                    <div class="form-group">
+                        <label for="court_condition">Court Condition</label>
+                        <select name="court_condition" id="court_condition" class="form-control">
+                            <option value="Excellent" {{ $court->court_condition == 'Excellent' ? 'selected' : '' }}>Excellent</option>
+                            <option value="Decent" {{ $court->court_condition == 'Decent' ? 'selected' : '' }}>Decent</option>
+                            <option value="Barely Playable" {{ $court->court_condition == 'Barely Playable' ? 'selected' : '' }}>Barely Playable</option>
+                            <option value="Unplayable" {{ $court->court_condition == 'Unplayable' ? 'selected' : '' }}>Unplayable</option>
+                        </select>
+                    </div>
+
                     <!-- Surface -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Surface</label>

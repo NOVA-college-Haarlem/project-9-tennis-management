@@ -64,7 +64,7 @@
                                    class="w-full p-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-indigo-500 transition duration-200" required>
                         </div>
                     </div>
-{{-- 
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Format</label>
                         <input type="text" name="format" value="{{ old('format', $tournament->format) }}"

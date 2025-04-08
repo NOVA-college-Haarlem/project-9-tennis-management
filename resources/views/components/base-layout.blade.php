@@ -56,7 +56,6 @@
     }
   </style>
 </head>
-
 <body class="font-sans antialiased bg-green-100 text-white">
   <!-- Header -->
   <header class="bg-white shadow-soft sticky top-0 z-50">
@@ -78,6 +77,7 @@
               <li><a href="/competitions" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Competition</a></li>
               <li><a href="/tournaments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
               <li><a href="/equipments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Equipments</a></li>
+              <li><a href="/users" class="nav-link px-4 py-2 text-white font-medium rounded-lg hover:bg-green-700">Users</a></li>
               <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Coaching</a></li>
               <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Membership</a></li>
               <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">More</a></li>

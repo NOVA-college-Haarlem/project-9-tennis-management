@@ -24,7 +24,6 @@
             <!-- Form Section -->
             <form action="{{ route('tournament_matches.store') }}" method="POST" class="space-y-6">
                 @csrf
-
                 <div class="bg-indigo-50 p-6 rounded-xl shadow-inner space-y-6">
                     <!-- Tournament Selection -->
                     <div>
