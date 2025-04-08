@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('lesson_bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('coach_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->dateTime('lesson_date');
+            $table->foreignId('coach_id')->constrained()->onDelete('cascade');
+            $table->foreignId('court_id')->constrained()->onDelete('cascade');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->enum('lesson_type', ['private', 'group'])->default('private'); // Type of lesson
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->text('notes')->nullable(); // Additional notes or requests
             $table->timestamps();
         });
     }
