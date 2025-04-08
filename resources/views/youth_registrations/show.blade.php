@@ -4,6 +4,7 @@
 <p>Program: {{ $youthRegistration->program->name }}</p>
 <p>Emergency Contact: {{ $youthRegistration->emergency_contact_phone }}</p>
 <p>Status: {{ $youthRegistration->status }}</p>
+<a href="{{ route('youth_registrations.edit', $youthRegistration->id) }}" class="btn btn-warning">Edit</a>
 <form action="{{ route('youth_registrations.destroy', $youthRegistration->id) }}" method="POST" style="display:inline;">
     @csrf
     @method('DELETE')
