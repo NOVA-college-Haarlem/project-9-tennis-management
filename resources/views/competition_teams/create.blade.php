@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @if ($errors->any())
     <div class="alert alert-danger bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg">
         <ul>
@@ -71,30 +70,4 @@
             </form>
         </div>
     </main>
-=======
-<x-base-layout>
-    <h1>Create Competition Team</h1>
-    <form action="{{ route('competition_teams.store') }}" method="POST">
-        @csrf
-        <label>Team Name:</label>
-        <select name="name">
-            @foreach ($teams as $team)
-                <option value="{{ $team->name }}">{{ $team->name }}</option>
-            @endforeach
-        </select>
-        <label>Competition:</label>
-        <select name="competition_id">
-            @foreach ($competitions as $competition)
-                <option value="{{ $competition->id }}">{{ $competition->name }}</option>
-            @endforeach
-        </select>
-        <label>Captain:</label>
-        <select name="captain_id">
-            @foreach ($users as $user)
-                <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
-            @endforeach
-        </select>
-        <button type="submit">Create</button>
-    </form>
->>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>

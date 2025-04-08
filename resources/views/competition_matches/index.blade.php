@@ -1,5 +1,4 @@
 <x-base-layout>
-<<<<<<< HEAD
     <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
         <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
             <div class="max-w-6xl mx-auto space-y-6">
@@ -113,39 +112,4 @@
             </div>
         </div>
     </main>
-=======
-    <h1>Competition Matches</h1>
-    <a href="{{ route('competition_matches.create') }}">Create New Match</a>
-    <table>
-        <tr>
-            <th>Competition</th>
-            <th>Team 1</th>
-            <th>Team 2</th>
-            <th>Scheduled Time</th>
-            <th>Court</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-        @foreach ($matches as $match)
-            <tr>
-                <td>{{ $match->competition->name }}</td>
-                <td>{{ $match->team1->name }}</td>
-                <td>{{ $match->team2->name }}</td>
-                <td>{{ $match->scheduled_time }}</td>
-                <td>{{ $match->court->name }}</td>
-                <td>{{ $match->status }}</td>
-                <td>
-                    <a href="{{ route('competition_matches.show', $match) }}">View</a>
-                    <a href="{{ route('competition_matches.edit', $match) }}">Edit</a>
-                    <form action="{{ route('competition_matches.destroy', $match) }}" method="POST"
-                        style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
->>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>
