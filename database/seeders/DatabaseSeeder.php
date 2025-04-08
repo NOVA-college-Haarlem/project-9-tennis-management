@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             CompetitionTeamSeeder::class,
             CompetitionMatchSeeder::class,
             MembershipLevelSeeder::class,
+            MembershipSeeder::class,
             EquipmentSeeder::class,
             EquipmentRentalSeeder::class,
         ]);
