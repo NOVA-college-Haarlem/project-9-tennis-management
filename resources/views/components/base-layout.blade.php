@@ -78,6 +78,8 @@
               <li><a href="/equipments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Equipments</a></li>
               <li><a href="/memberships" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Memberships</a></li>
               <li><a href="/tournaments" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Tournaments</a></li>
+              <li><a href="/youth_programs" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Youth Programs</a></li>
+              <li><a href="/youth_registrations" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Youth Registrations</a></li>
               <li><a href="/users" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">Users</a></li>
               <li><a href="#" class="nav-link px-2 py-1 text-gray-700 font-medium hover:text-green-600">More</a></li>
             </ul>
