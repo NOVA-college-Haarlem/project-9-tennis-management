@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->integer('min_skill_level');
             $table->integer('max_skill_level');
-            $table->string('format'); // e.g., "round-robin", "knockout"
+            // $table->string('format'); // e.g., "round-robin", "knockout"
             $table->string('status')->default('upcoming'); // upcoming, ongoing, completed
             $table->timestamps();
         });

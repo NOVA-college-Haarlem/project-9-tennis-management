@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->integer('min_skill_level');
             $table->integer('max_skill_level');
-            $table->string('format'); 
+            // $table->string('format'); 
             $table->decimal('entry_fee', 8, 2)->default(0);
             $table->string('status')->default('upcoming');
             $table->timestamps();

@@ -26,7 +26,6 @@ class CourtRequest extends FormRequest
             'court_type' => ['required', 'string'],
             'surface' => ['required', 'string'],
             'indoor' => ['required', 'boolean'],
-            'active' => ['required', 'boolean'],
         ];
     }
 }

@@ -14,7 +14,7 @@ class Tournament extends Model
 
     protected $fillable = [
         'name', 'description', 'start_date', 'end_date', 'min_skill_level',
-        'max_skill_level', 'format', 'entry_fee', 'status'
+        'max_skill_level', 'entry_fee', 'status'
     ];
 
     public function registrations()

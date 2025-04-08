@@ -19,7 +19,7 @@ class BookingSeeder extends Seeder
                 'court_id' => 1,
                 'start_time' => '2025-03-26 08:00:00',
                 'end_time' => '2025-03-26 09:00:00',
-                'status' => 'approved',
+                'status' => 'confirmed',
                 'booking_type' => 'Regular',
             ],
             [
