@@ -1,4 +1,5 @@
 <x-base-layout>
+<<<<<<< HEAD
     <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
             <!-- Header Section -->
@@ -66,4 +67,34 @@
             </form>
         </div>
     </main>
+=======
+    <h1>Edit Competition Team</h1>
+    <form action="{{ route('competition_teams.update', $competitionTeam) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <label>Team Name:</label>
+        <select name="name">
+            @foreach ($teams as $team)
+                <option value="{{ $team->name }}" {{ $competitionTeam->name == $team->name ? 'selected' : '' }}>
+                    {{ $team->name }}</option>
+            @endforeach
+        </select>
+        <label>Competition:</label>
+        <select name="competition_id">
+            @foreach ($competitions as $competition)
+                <option value="{{ $competition->id }}"
+                    {{ $competitionTeam->competition_id == $competition->id ? 'selected' : '' }}>
+                    {{ $competition->name }}</option>
+            @endforeach
+        </select>
+        <label>Captain:</label>
+        <select name="captain_id">
+            @foreach ($users as $user)
+                <option value="{{ $user->id }}" {{ $competitionTeam->captain_id == $user->id ? 'selected' : '' }}>
+                    {{ $user->firstname }} {{ $user->lastname }}</option>
+            @endforeach
+        </select>
+        <button type="submit">Update</button>
+    </form>
+>>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -8,6 +9,46 @@
     </div>
 @endif
 <x-base-layout>
+=======
+<x-base-layout>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <h1>Create Competition Match</h1>
+    <form action="{{ route('competition_matches.store') }}" method="POST">
+        @csrf
+        <label>Competition:</label>
+        <select name="competition_id">
+            @foreach ($competitions as $competition)
+                <option value="{{ $competition->id }}">{{ $competition->name }}</option>
+            @endforeach
+        </select>
+        <label>Team 1:</label>
+        <select name="team1_id">
+            @foreach ($teams as $team)
+                <option value="{{ $team->id }}">{{ $team->name }}</option>
+            @endforeach
+        </select>
+        <label>Team 2:</label>
+        <select name="team2_id">
+            @foreach ($teams as $team)
+                <option value="{{ $team->id }}">{{ $team->name }}</option>
+            @endforeach
+        </select>
+        <label>Court:</label>
+        <select name="court_id">
+            @foreach ($courts as $court)
+                <option value="{{ $court->id }}">{{ $court->name }}</option>
+            @endforeach
+        </select>
+>>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 
     <main class="container mx-auto my-12 px-4 sm:px-6 lg:px-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-8">
@@ -20,6 +61,7 @@
                 </a>
             </div>
 
+<<<<<<< HEAD
             <!-- Form Section -->
             <form action="{{ route('competition_matches.store') }}" method="POST" class="space-y-6">
                 @csrf
@@ -93,4 +135,10 @@
             </form>
         </div>
     </main>
+=======
+        <label>Scheduled Time:</label>
+        <input type="datetime-local" name="scheduled_time" required>
+        <button type="submit">Create</button>
+    </form>
+>>>>>>> 07a1b80ba1e5bc6062338a3528c2866f5d67200e
 </x-base-layout>
